@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+
+    <style>
+        body{
+            background-color: burlywood;
+        }
+        .container{
+            background-color: rgb(150, 222, 231);
+            width: 70%;
+            margin:0 auto;
+            padding: 10px 20px 20px 20px;
+        }
+        .container>h1{
+            text-align: center;
+        }
+
+        hr{
+            margin:0;
+
+        }
+         input{
+            border: none;
+            width: 100%;
+            background-color: rgb(150, 222, 231);
+            font-size: medium;
+            
+        }
+        select{
+            background-color: rgb(150, 222, 231);
+            border:none;
+            font-size: medium;
+            width: 250px;
+        }
+        input:focus{
+            border:none;
+            outline:none;
+        }
+
+        .details{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .category{
+
+        }
+        
+        
+        select:focus{
+            border:none;
+            outline:none;
+        }
+        input[type='date']{
+            width: 120px;
+        }
+        .verticalrule{
+            border-left:1px solid black;
+            height: 50px;
+            margin-right: 10px;;
+            
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TODO APP</h1>
+        <hr>
+        <div class="description">
+            <label for="description">
+                DESCRIPTION
+            </label>
+            <br>
+            <input type ='text' name="description" placeholder="what do you need to do?">
+            <hr>
+        </div>
+
+        <div class="details">
+            <div class="category">
+                <label for="category">CATEGORY</label>
+                        <br>
+                <select name="category" id="category" >
+                    <option>Choose a category</option>
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="School">School</option>
+                <option value="Cleaning">Cleaning</option>
+                <option value="Other">Other</option>
+                </select>
+            
+            </div>
+                <div class="verticalrule"></div>
+            
+            <div class="date">
+                <label for="date">DUE DATE</label>
+                <br>
+                <input type="date" name="date" id="date">
+                
+            </div>
+
+        </div>
+        <hr>
+            <div class="actions">
+                <div class="task">ADD TASK</div>
+                <div class="delete">DELETE TASKS</div>
+            </div>
+    </div>
+</body>
+</html>
