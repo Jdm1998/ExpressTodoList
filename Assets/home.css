@@ -1,0 +1,144 @@
+
+body{
+    background-color: rgb(222, 135, 222);
+    background-image: url("https://images.unsplash.com/photo-1519865885898-a54a6f2c7eea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1958&q=80");
+}
+.container{
+    background-color: rgb(150, 222, 231);
+    max-width: 500px;
+    width: 70%;
+    margin:0 auto;
+    padding: 10px 20px 20px 20px;
+    border-radius: 5px;
+}
+.container>h1{
+    text-align: center;
+}
+
+hr{
+    margin:0;
+
+}
+ input{
+    border: none;
+    width: 100%;
+    background-color: rgb(150, 222, 231);
+    font-size: medium;
+    
+}
+select{
+    background-color: rgb(150, 222, 231);
+    border:none;
+    font-size: medium;
+    width: 200px;
+}
+input:focus{
+    border:none;
+    outline:none;
+}
+
+.details{
+    display: flex;
+}
+.category{
+        width: 250px;
+}
+
+
+select:focus{
+    border:none;
+    outline:none;
+}
+input[type='date']{
+    width: 120px;
+}
+.verticalrule{
+    border-left:1px solid black;
+    height: 50px;
+    margin-right: 10px;;
+    
+
+
+}
+.actions{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+}
+
+.addtask, .delete{
+    height: fit-content;
+    
+}
+button{
+    margin: 10px;
+    border-radius: 5px;
+    padding: 4px;
+    width:150px;
+    background-color: rgb(77, 59, 233);
+}
+.delete{
+    margin: 10px;
+    padding: 3px;
+    width:150px;
+    background-color: rgb(77, 59, 233);
+    border: 2px solid black;
+    text-align: center;
+}
+
+
+.taskcontainer>h2{
+    text-align: center;
+}
+
+.task{
+    display: flex;
+    justify-content: flex-start;
+    border: 1px solid blue;
+    padding :2px;
+    border-radius: 5px;
+    background-color: rgb(94, 142, 190);
+    margin:10px;
+}
+input[type="checkbox"]{
+    transform: scale(1.5);
+}
+.checkbox{
+    align-self: center;
+
+}
+.taskDescription{
+    margin-left: 10px;
+    flex-grow: 4;
+}
+.categoryDisplay{
+    align-self: center;
+    font-weight:bold;
+}
+.work{
+    padding:4px;
+    border-radius: 5px;
+    background-color: rgb(186, 150, 219);
+}
+.personal{
+    padding:4px;
+    border-radius: 5px;
+    background-color: rgb(209, 118, 136);
+}
+.school{
+    padding:4px;
+    border-radius: 5px;
+    background-color: rgb(78, 161, 78);
+}
+.cleaning{
+    border-radius: 5px;
+    padding:4px;
+    background-color: rgb(134, 64, 64);
+}
+.other{
+    border-radius: 5px;
+    padding:4px;
+    background-color: rgb(209, 223, 82);
+}
+
+

@@ -4,100 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d30e42a1f2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/home.css">
+       
     <title>Todo List</title>
-
-    <style>
-        body{
-            background-color: burlywood;
-        }
-        .container{
-            background-color: rgb(150, 222, 231);
-            width: 70%;
-            margin:0 auto;
-            padding: 10px 20px 20px 20px;
-        }
-        .container>h1{
-            text-align: center;
-        }
-
-        hr{
-            margin:0;
-
-        }
-         input{
-            border: none;
-            width: 100%;
-            background-color: rgb(150, 222, 231);
-            font-size: medium;
-            
-        }
-        select{
-            background-color: rgb(150, 222, 231);
-            border:none;
-            font-size: medium;
-            width: 200px;
-        }
-        input:focus{
-            border:none;
-            outline:none;
-        }
-
-        .details{
-            display: flex;
-        }
-        .category{
-                width: 250px;
-        }
-        
-        
-        select:focus{
-            border:none;
-            outline:none;
-        }
-        input[type='date']{
-            width: 120px;
-        }
-        .verticalrule{
-            border-left:1px solid black;
-            height: 50px;
-            margin-right: 10px;;
-            
-
-
-        }
-        .actions{
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .task{
-            border:1px solid black;
-            padding: 4px;
-            margin:4px;
-            background-color: rgb(77, 59, 233);
-        }
-
-        .delete{
-            border:1px solid black;
-            padding: 4px;
-            margin:4px;
-            background-color: rgb(77, 59, 233);
-        
-        }
-
-
-    </style>
-</head>
+       
+  </head>
 <body>
+   
     <div class="container">
         <h1>TODO APP</h1>
         <hr>
+        <form action="/add"  name= "task_Add" id="task_Add" method="post" >
         <div class="description">
             <label for="description">
                 DESCRIPTION
             </label>
             <br>
-            <input type ='text' name="description" placeholder="what do you need to do?">
+            <input type ='text' name="description" placeholder="what do you need to do?" required>
             <hr>
         </div>
 
@@ -105,13 +29,13 @@
             <div class="category">
                 <label for="category">CATEGORY</label>
                         <br>
-                <select name="category" id="category" >
+                <select name="category" id="category"  required>
                     <option>Choose a category</option>
-                <option value="Personal">Personal</option>
-                <option value="Work">Work</option>
-                <option value="School">School</option>
-                <option value="Cleaning">Cleaning</option>
-                <option value="Other">Other</option>
+                <option value="personal">Personal</option>
+                <option value="work">Work</option>
+                <option value="school">School</option>
+                <option value="cleaning">Cleaning</option>
+                <option value="other">Other</option>
                 </select>
             
             </div>
@@ -120,16 +44,59 @@
             <div class="date">
                 <label for="date">DUE DATE</label>
                 <br>
-                <input type="date" name="date" id="date">
+                <input type="date" name="date" id="date"  min ="2023-06-01" required>
                 
             </div>
 
         </div>
         <hr>
             <div class="actions">
-                <div class="task">ADD TASK</div>
-                <div class="delete">DELETE TASKS</div>
+                <div class="addtask">
+                <button type="submit">ADD TASK</button></div>
+                   
+                
+            </div>
+        </form>
+
+            <div class="taskcontainer">
+                    <h2>TASK LIST</h2>
+                    <form action="/delete" method="post">
+                    <%tasks.forEach(function(task){%>
+                <div class="task">
+                    <div class="checkbox">
+                        <input type="checkbox" name="delete" id=<%=task.id%> value= <%=task.title%> >
+                    </div>
+                    <div class="taskDescription"> 
+                        <div class="taskdetail"><%=task.title%></div>
+                        <div class="taskDueDate"> <i class="fa-solid fa-calendar"></i><span> <%=task.duedate%></span></div>
+                </div>
+                <div class="categoryDisplay" >
+                    <div class=<%=task.category %>>
+                        
+                        <%=task.category%>
+                    </div>
+                </div>
+            </div>
+            <%})%>
+
+            <% if(tasks.length>0) {%>
+
+            <button type="submit"  >Delete</button>
+            
+            
+            <%}else {%>
+                <p style="text-align: center;">It is good to keep adding your tasks </p>
+                <%}%>
+
+        </form>
+
+                    
             </div>
     </div>
+    <script src="/home.js" >
+     
+</script>
+
 </body>
+
 </html>
