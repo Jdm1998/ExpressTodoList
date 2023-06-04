@@ -6,10 +6,10 @@ module.exports.del = async function(req,res){
     console.log(typeof req.body.delete);
         try{
             if(typeof titles =="string"){
-               await modeldb.deleteOne({title:titles});
+               await modeldb.deleteOne({title:titles});  //deleting object with same title
             }
             else{
-                for(let title in titles){
+                for(let title in titles){              // deleting multiple object  
                     await modeldb.deleteOne({title:title});
                     }
             }

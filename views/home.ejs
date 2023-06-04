@@ -15,13 +15,14 @@
     <div class="container">
         <h1>TODO APP</h1>
         <hr>
+        <!-- form for adding new task -->
         <form action="/add"  name= "task_Add" id="task_Add" method="post" >
         <div class="description">
             <label for="description">
                 DESCRIPTION
             </label>
             <br>
-            <input type ='text' name="description" placeholder="what do you need to do?" required>
+            <input type ='text' name="description" id="description" placeholder="what do you need to do?" required>
             <hr>
         </div>
 
@@ -60,11 +61,12 @@
 
             <div class="taskcontainer">
                     <h2>TASK LIST</h2>
+                     <!-- tasklist with checkbox -->
                     <form action="/delete" method="post">
                     <%tasks.forEach(function(task){%>
                 <div class="task">
                     <div class="checkbox">
-                        <input type="checkbox" name="delete" id=<%=task.id%> value= <%=task.title%> >
+                        <input type="checkbox" name="delete"  value= <%=task.title%> >
                     </div>
                     <div class="taskDescription"> 
                         <div class="taskdetail"><%=task.title%></div>
@@ -78,7 +80,7 @@
                 </div>
             </div>
             <%})%>
-
+                    <!-- conditional redendering delete button -->
             <% if(tasks.length>0) {%>
 
             <button type="submit"  >Delete</button>

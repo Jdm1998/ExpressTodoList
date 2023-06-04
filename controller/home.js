@@ -9,22 +9,13 @@ const modeldb =require('../model/database');
 //     category:"work"
 
 // }]
-async function tasklist(){
-
- let tasklists = await modeldb.find({});
- return tasklists;
-}
-
-const tasks = tasklist();
-console.log(tasks);
-module.exports.tasks=tasks;
 
 
 
 module.exports.home = async (req,res)=>{
     try{
         console.log('in home.js')
-        const tasks = await modeldb.find({});
+        const tasks = await modeldb.find({}); //getting all task
         return res.render('home',{tasks:tasks});
 
     }

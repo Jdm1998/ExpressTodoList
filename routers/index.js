@@ -4,9 +4,9 @@ const route = express.Router();
 const {home} = require('../controller/home');
 const { del} = require('../controller/delete');
 
-route.get('/',home);
-route.post('/add',add);
-route.post('/delete',del);
+route.get('/',home); // for homepage
+route.post('/add',add); // post request for adding task 
+route.post('/delete',del); // post request for deleting task
 
 
 module.exports =route;

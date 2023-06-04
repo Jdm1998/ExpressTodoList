@@ -1,3 +1,5 @@
+// setting min value for date field
+
 let today = new Date();
 let month = today.getMonth()+1;
 let day = today.getDate();   
