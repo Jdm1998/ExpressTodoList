@@ -1,9 +1,22 @@
+ const modeldb = require('../model/database');
 
-const {del} = require('./home')
-module.exports.del = function(req,res){
-
+module.exports.del = async function(req,res){
+        const titles = req.body.delete;
     console.log("in delete.js",req.body.delete);
     console.log(typeof req.body.delete);
-        del(req.body.delete);
-    res.redirect('back');
+        try{
+            if(typeof titles =="string"){
+               await modeldb.deleteOne({title:titles});
+            }
+            else{
+                for(let title in titles){
+                    await modeldb.deleteOne({title:title});
+                    }
+            }
+            
+        }
+        catch(error){
+            console.log("error in delete",error);
+        }
+        res.redirect('back');
 }

@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const port = 8000;
 const route = require('./routers/index');
+const db= require('./configs/mongo');
 app.set('view engine','ejs');
 app.set('views','./views');
 app.use(express.static('./assets')) // for getting static

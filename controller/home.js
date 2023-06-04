@@ -1,32 +1,37 @@
 
-const tasks=[{
-    id:1,
-    title:"task1",
-    duedate:"25/02/2023",
-    category:"work"
+const modeldb =require('../model/database');
 
-}]
 
+// const tasks=[{
+//     id:1,
+//     title:"task1",
+//     duedate:"25/02/2023",
+//     category:"work"
+
+// }]
+async function tasklist(){
+
+ let tasklists = await modeldb.find({});
+ return tasklists;
+}
+
+const tasks = tasklist();
+console.log(tasks);
 module.exports.tasks=tasks;
-module.exports.addtask= function addtasks(task){
-    tasks.push(task);
-}
-module.exports.del =function del(titles){
-    if(typeof titles =="string"){
-        let index= tasks.findIndex(task => task.title ==titles)
-        if(index!=-1)
-        tasks.splice(index,1); 
+
+
+
+module.exports.home = async (req,res)=>{
+    try{
+        console.log('in home.js')
+        const tasks = await modeldb.find({});
+        return res.render('home',{tasks:tasks});
+
     }
-    else{
-   for(let title in titles){
-       let index= tasks.findIndex(task => task.title ==title)
-       if(index!=-1)
-       tasks.splice(index,1);
+    catch(error){
+        console.log("getAllTasks Error:", error);
+        return res.status(500).send("Something went wrong!");
+      
     }
 }
 
-}
-module.exports.home = function(req,res){
-    console.log('in home.js')
-    return res.render('home',{tasks:tasks});
-}
